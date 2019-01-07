@@ -1,6 +1,7 @@
 Rails.application.configure do
   # Settings for user confirmation
   config.active_storage.service = :local
+  config.action_mailer.delivery_method = :test
   config.default_url_options = { host: "localhost:3000" }
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
   
