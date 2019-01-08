@@ -40,6 +40,12 @@ class MemesController < ApplicationController
       end
     end
     
+    def hashtags
+      tag = Tag.find_by(name: params[:name])
+      @hashtag = tag.name
+      @memes = tag.memes
+    end
+    
     def destroy
       @meme.destroy!
       respond_to do |format|
@@ -55,7 +61,7 @@ class MemesController < ApplicationController
     end
     
     def meme_params
-      params.require(:meme).permit(:name, :picture, :user_id)
+      params.require(:meme).permit(:caption, :picture, :user_id, :hashtags)
     end
     
 end

@@ -6,9 +6,9 @@
 <dl class="dl-horizontal">
   <dt></dt>
   <dd><%= image_tag @meme.picture.url if @meme.picture? %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @meme.name %></dd>
-</dl>
+  <dt><strong><%= model_class.human_attribute_name(:hashtags) %>:</strong></dt>
+  <dd><%= render_with_hashtags(@meme.hashtags) %></dd>
+  </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               memes_path, :class => 'btn btn-default'  %>
