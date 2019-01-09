@@ -1,15 +1,13 @@
 <%- model_class = Meme -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
-</div>
-
 <dl class="dl-horizontal">
   <dt></dt>
-  <dd><%= image_tag @meme.picture.url if @meme.picture? %></dd>
+  <dd> <%= image_tag @meme.picture.url, width: 500  if @meme.picture?%> </dd>
   <% if !@meme.hashtags.empty? %>
   <dt><strong><%= model_class.human_attribute_name(:hashtags) %>:</strong></dt>
   <dd><%= render_with_hashtags(@meme.hashtags) %></dd>
   <% end %>
+  <dt><strong><%= model_class.human_attribute_name(:caption) %>:</strong></dt>
+  <dd> <%= @meme.caption %>
   </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
