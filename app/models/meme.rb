@@ -21,6 +21,14 @@ class Meme < ApplicationRecord
     end
   end
 
+  def self.search(meme)
+    if meme
+      where('caption LIKE ?', "%#{meme}%").order('id DESC')
+    else
+      order('id DESC') 
+    end
+  end
+
   private
   def picture_size
     if picture.size > 2.megabytes

@@ -1,7 +1,7 @@
 class MemesController < ApplicationController
     before_action :set_meme, only: [:show, :edit, :update, :destroy] 
     def index
-      @memes = Meme.all
+      @memes = Meme.search(params[:caption])
     end
       
     def show
