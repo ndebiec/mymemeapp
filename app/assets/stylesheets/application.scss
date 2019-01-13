@@ -17,28 +17,8 @@
 @import "bootstrap";
 @import "font-awesome";
 
+/* Navigation */ 
 
-.user-name {
-    padding: 0 !important ;
-    padding-left: 5px;
-    padding-top: 5px !important;
-    text-align: center;
-    
-    a {
-    color: black !important;
-    margin: 0 !important;
-    padding: 5px!important;
-    }
-    
-    a:hover, a:focus {
-    color: #000 !important;
-    }
-    }
-    
-    .logout {
-    padding-left: 0;
-    }
-    
     .nav.navbar-right {
     padding-bottom: 10px;
     padding-top: 5px;
@@ -78,6 +58,26 @@
     .btn-primary:visited, .btn-danger:visited {
     color: #fff;
     }
+    
+    .user-name {
+      padding: 0 !important ;
+      padding-left: 5px;
+      padding-top: 5px !important;
+      text-align: center;
+      
+      a {
+      margin: 0 !important;
+      padding: 5px!important;
+      }
+      
+      }
+      
+      .logout {
+      padding-left: 0;
+      }
+
+
+ /* Index Page */
     
     .features {
       ul {
@@ -121,4 +121,10 @@
       font-weight: 500;
       list-style-type: none;
       font-family: Frutiger, Futura, Officina, Helvetica, sans-serif;
+    }
+
+    /* Searchbar */
+
+    .search-bar {
+      margin-bottom: 50px;
     }

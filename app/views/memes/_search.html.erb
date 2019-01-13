@@ -1,7 +1,8 @@
-<div class="row">
-<%= form_tag(memes_path, method: :get, id: 'meme-search') do %>
-  <div class="form-group row no-padding col-md-8 align:center">
-    <div class = "col-md-10">
+<div class="row search-bar">
+  <%= form_tag(memes_path, method: :get, id: 'meme-search') do %>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-6">
       <%= text_field_tag :caption, params[:caption], class: 'form-control'  %>
     </div>
     <div class="col-md-2">
@@ -9,6 +10,6 @@
         <i class="fa fa-search"></i> Search
       <% end %>
     </div>
-  </div>
-<% end %>
+    </div>
+  <% end %>
 </div>
