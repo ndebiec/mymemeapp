@@ -2,13 +2,13 @@
 <dl class="dl-horizontal">
   <dt></dt>
   <dd> <%= image_tag @meme.picture.url, width: 500  if @meme.picture?%> </dd>
-  <% if !@meme.hashtags.empty? %>
-  <dt><strong><%= model_class.human_attribute_name(:hashtags) %>:</strong></dt>
-  <dd><%= render_with_hashtags(@meme.hashtags) %></dd>
-  <% end %>
   <dt><strong><%= model_class.human_attribute_name(:caption) %>:</strong></dt>
   <dd> <%= @meme.caption %>
-  </dl>
+  <% if @meme.extracted_hashtags.present? %>
+  <dt><strong><%= model_class.human_attribute_name(:hashtags) %>:</strong></dt>
+  <dd><%= render_with_hashtags(@meme.extracted_hashtags) %></dd>
+  <% end %>
+</dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               memes_path, :class => 'btn btn-default'  %>

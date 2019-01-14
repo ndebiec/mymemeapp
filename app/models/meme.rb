@@ -1,14 +1,17 @@
 # frozen_string_literal: true
 
 class Meme < ApplicationRecord
+  # Relations
   belongs_to :user
   has_and_belongs_to_many :tags
-  mount_uploader :picture, PictureUploader
+  # Validation
   validate :picture_size
 
-  after_create do
-    extract_tags
-  end
+  attr_accessor :hashtags
+
+  mount_uploader :picture, PictureUploader
+
+  after_create :extract_tags
 
   before_update do
     tags.clear
@@ -23,6 +26,10 @@ class Meme < ApplicationRecord
     end
   end
 
+  def extracted_hashtags
+    tags.pluck(:name).map{ |x| '#' + x }.join(' ')
+  end
+
   private
 
   def picture_size
@@ -32,8 +39,7 @@ class Meme < ApplicationRecord
   end
 
   def extract_tags
-    hashtags = self.hashtags.scan(/#\w+/)
-    hashtags.uniq.map do |hashtag|
+    hashtags.scan(/#\w+/).uniq.map do |hashtag|
       tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
       tags << tag
     end

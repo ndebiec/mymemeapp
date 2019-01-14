@@ -1,4 +1,4 @@
-<%= form_for @meme, :html => { multipart: true, :class => "form-horizontal meme" } do |f| %>
+<%= form_for @meme, html: { multipart: true, :class => "form-horizontal meme" } do |f| %>
 
   <% if @meme.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
@@ -23,16 +23,16 @@
     <%=f.error_span(:caption) %>
   </div>
   <div class="form-group">
-    <%= f.label :picture, :class => 'control-label col-lg-2' %>
+    <%= f.label :picture, class: 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
     </div>
-    <%=f.error_span(:picture) %>
+    <%= f.error_span(:picture) %>
   </div>
   <div class="form-group">
-    <%= f.label :hashtags, :class => 'control-label col-lg-2' %>
+    <%= f.label :hashtags, class: 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :hashtags, :class => 'form-control' %>
+      <%= f.text_field :hashtags, class: 'form-control', value: @meme.extracted_hashtags %>
     </div>
     <%=f.error_span(:hashtags) %>
   </div>
