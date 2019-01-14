@@ -1,8 +1,8 @@
 <div class="row text-center text-lg-left">
     <% @memes.each do |meme| %>
       <div class="col-lg-3 col-md-4 col-xs-6">
-        <%= link_to meme_path(meme), :class => 'd-block mb-4 h-100' do %>
-          <%= image_tag meme.picture.url, :class => 'img-fluid img-thumbnail', :alt => 'caption' %>
+        <%= link_to meme_path(meme), class: 'd-block mb-4 h-100 w-100' do %>
+          <%= image_tag meme.picture.url, class: 'img-fluid img-thumbnail', alt: 'caption' %>
         <% end %>
       </div>
     <% end %>

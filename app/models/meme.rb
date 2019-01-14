@@ -13,11 +13,11 @@ class Meme < ApplicationRecord
   end
 
   before_update do
-    self.tags.clear
-    hashtags=self.hashtags.scan(/#\w+/)
+    tags.clear
+    hashtags = self.hashtags.scan(/#\w+/)
     hashtags.uniq.map do |hashtag|
       tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
-      self.tags << tag
+      tags << tag
     end
   end
 
@@ -32,7 +32,7 @@ class Meme < ApplicationRecord
   private
   def picture_size
     if picture.size > 2.megabytes
-      errors.add(:picture, "File size cannot be greater than 2MB")
+      errors.add(:picture, 'File size cannot be greater than 2MB')
     end
   end
 end
