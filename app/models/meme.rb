@@ -7,20 +7,12 @@ class Meme < ApplicationRecord
   validate :picture_size
 
   after_create do
-    hashtags = self.hashtags.scan(/#\w+/)
-    hashtags.uniq.map do |hashtag|
-      tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
-      tags << tag
-    end
+    extract_tags
   end
 
   before_update do
     tags.clear
-    hashtags = self.hashtags.scan(/#\w+/)
-    hashtags.uniq.map do |hashtag|
-      tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
-      tags << tag
-    end
+    extract_tags
   end
 
   def self.search(meme)
@@ -38,4 +30,13 @@ class Meme < ApplicationRecord
       errors.add(:picture, 'File size cannot be greater than 2MB')
     end
   end
+
+  def extract_tags
+    hashtags = self.hashtags.scan(/#\w+/)
+    hashtags.uniq.map do |hashtag|
+      tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
+      tags << tag
+    end
+  end
+
 end
