@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is an app that allows you to upload and your favourite memes. 
+You can then find particular ones by looking up their caption, or by hashtags. 
 
-Things you may want to cover:
+Uploaded images are stored on Amazon S3 Bucket
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ruby version: 2.5.3
+Rails version: 5.2.2
