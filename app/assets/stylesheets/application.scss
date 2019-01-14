@@ -18,113 +18,94 @@
 @import "font-awesome";
 
 /* Navigation */ 
+.nav.navbar-nav a:hover {
+  background-color: #fff;
+}
 
-    .nav.navbar-right {
-    padding-bottom: 10px;
-    padding-top: 5px;
-    }
-    
-    .nav.navbar-nav {
-    .navbar-link {
-    border-radius: 5px;
-    color: #fff;
-    margin-top: 15px;
-    padding: 8px;
-    }
-    
-    .navbar-link:focus, .navbar-link:hover {
-    background: #3071a9;
-    color: #fff;
-    }
-    
-    li a {
-    margin-right: 5px;
-    }
-    }
-    
-    .nav.navbar-right li {
-    .btn {
+.nav.navbar-right {
+  padding-bottom: 10px;
+  padding-top: 5px;
+  }
+
+.nav.navbar-right li {
+  .btn {
     color: #fff !important;
-    margin-top: 5%;
     }
-    .btn-danger:hover, .btn-danger:focus {
+  .btn-danger:hover, .btn-danger:focus {
     background-color: darken(#d9534f,20%) !important;
     }
-    .btn-primary:hover, .btn-primary:focus {
+  .btn-primary:hover, .btn-primary:focus {
     background-color: darken(#428bca,20%) !important;
     }
-    }
+  }
     
-    .btn-primary:visited, .btn-danger:visited {
-    color: #fff;
-    }
+.btn-primary:visited, .btn-danger:visited {
+  color: #fff;
+  }
+
+.user-name {
+  padding: 0 !important ;
+  padding-left: 5px;
+  text-align: center;
+  }   
+     
+.user-name a:hover {
+  background-color: #fff !important;
+}
     
-    .user-name {
-      padding: 0 !important ;
-      padding-left: 5px;
-      padding-top: 5px !important;
-      text-align: center;
-      
-      a {
-      margin: 0 !important;
-      padding: 5px!important;
-      }
-      
-      }
-      
-      .logout {
-      padding-left: 0;
-      }
+.logout {
+  padding-left: 0;
+  }
 
 
  /* Index Page */
     
-    .features {
-      ul {
-        margin-left: 0;
-        padding-left: 15px;
-      }
+.features {
+  ul {
+    margin-left: 0;
+    padding-left: 15px;
     }
+ }
+ 
+.jumbotron {
+  text-align: center;
+  height: 560px;
+  background-image: asset-url('orange.jpg');
+  background-size: cover;
+  color: #fff;
+  font-stretch: expanded;
+  padding-top: 15px;
+  padding-bottom: 25px;
+  margin-left: 15px;
+  margin-right: 15px;
+}    
+ 
+.no-left-padding {
+  padding-left: 0 !important;
+}
     
-    .jumbotron {
-      text-align: center;
-      height: 560px;
-      background-image: asset-url('orange.jpg');
-      background-size: cover;
-      color: #fff;
-      font-stretch: expanded;
-      padding-top: 15px;
-      padding-bottom: 25px;
-      margin-left: 15px;
-      margin-right: 15px;
-    }
+.listing {
+  list-style: none;
+  padding-left: 0;
+}
     
-    .no-left-padding {
-      padding-left: 0 !important;
-    }
+.sign-up-btn {
+  margin-right: 30%;
+  margin-top: 50px;
+}
     
-    .listing {
-      list-style: none;
-      padding-left: 0;
-    }
-    
-    .sign-up-btn {
-      margin-right: 30%;
-      margin-top: 50px;
-    }
-    
-    .feature-list {
-      text-align: left;
-      font-size: 150%;
-      margin-left: 160px;
-      margin-top: 100px;
-      font-weight: 500;
-      list-style-type: none;
-      font-family: Frutiger, Futura, Officina, Helvetica, sans-serif;
-    }
+.feature-list {
+  text-align: left;
+  font-size: 150%;
+  margin-left: 160px;
+  margin-top: 100px;
+  font-weight: 500;
+  list-style-type: none;
+  font-family: Frutiger, Futura, Officina, Helvetica, sans-serif;
+}
 
-    /* Searchbar */
+/* Searchbar */
 
-    .search-bar {
-      margin-bottom: 50px;
-    }
+.search-bar {
+  margin-bottom: 50px;
+}

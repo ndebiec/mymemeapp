@@ -1,5 +1,5 @@
 <% if current_user %>
-  <h3>Welcome: <%= current_user.email %></h3>
+  <% controller.redirect_to memes_path %>
 <% else %>
   <div class="jumbotron">
     <h2>Your Online Meme Storage</h2>
