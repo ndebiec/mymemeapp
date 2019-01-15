@@ -6,6 +6,7 @@ class Meme < ApplicationRecord
   has_and_belongs_to_many :tags
   # Validation
   validate :picture_size
+  validates :picture, presence: true
 
   attr_accessor :hashtags
 
