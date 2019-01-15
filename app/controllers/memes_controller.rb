@@ -4,7 +4,7 @@ class MemesController < ApplicationController
   before_action :set_meme, only: %i[show edit update destroy]
 
   def index
-    @memes = Meme.search(params[:caption])
+    @memes = current_user.memes.search(params[:caption])
   end
 
   def show; end
@@ -16,10 +16,9 @@ class MemesController < ApplicationController
   def edit; end
 
   def create
-    @meme = Meme.new(meme_params)
-    @meme.user = current_user
     respond_to do |format|
-      if @meme.update(meme_params)
+      @meme = MemeCreator.new(meme_params, current_user).call 
+      if @meme.persisted? 
         format.html { redirect_to @meme, notice: 'Meme was succesfully uploaded' }
         format.json { render :show, status: :created, location: @meme }
       else
@@ -61,7 +60,7 @@ class MemesController < ApplicationController
   private
 
   def set_meme
-    @meme = Meme.find(params[:id])
+    @meme = current_user.memes.find(params[:id])
   end
 
   def meme_params

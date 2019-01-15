@@ -11,8 +11,6 @@ class Meme < ApplicationRecord
 
   mount_uploader :picture, PictureUploader
 
-  after_create :extract_tags
-
   before_update do
     tags.clear
     extract_tags
@@ -30,18 +28,17 @@ class Meme < ApplicationRecord
     tags.pluck(:name).map{ |x| '#' + x }.join(' ')
   end
 
+  def extract_tags
+    hashtags.scan(/#\w+/).uniq.each do |hashtag|
+      tags.find_or_create_by(name: hashtag.downcase.delete('#'))
+    end
+  end
+
   private
 
   def picture_size
     if picture.size > 2.megabytes
       errors.add(:picture, 'File size cannot be greater than 2MB')
-    end
-  end
-
-  def extract_tags
-    hashtags.scan(/#\w+/).uniq.map do |hashtag|
-      tag = Tag.find_or_create_by(name: hashtag.downcase.delete('#'))
-      tags << tag
     end
   end
 
