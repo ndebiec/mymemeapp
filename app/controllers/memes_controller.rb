@@ -41,7 +41,7 @@ class MemesController < ApplicationController
   end
 
   def hashtags
-    tag = Tag.find_by(name: params[:name])
+    tag = Tag.find_by(name: params[:name]) or not_found
     @hashtag = tag.name
     @memes = tag.memes
   end
@@ -60,7 +60,7 @@ class MemesController < ApplicationController
   private
 
   def set_meme
-    @meme = current_user.memes.find(params[:id])
+    @meme = current_user.memes.find(params[:id]) 
   end
 
   def meme_params
