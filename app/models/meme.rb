@@ -17,9 +17,9 @@ class Meme < ApplicationRecord
     extract_tags
   end
 
-  def self.search(meme)
-    if meme
-      where('caption LIKE ?', "%#{meme}%").order('id DESC')
+  def self.search(phrase)
+    if phrase
+      where('caption LIKE ?', "%#{phrase}%").order('id DESC')
     else
       order('id DESC')
     end
