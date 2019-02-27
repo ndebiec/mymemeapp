@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :memes
   get '/memes/hashtag/:name', to: 'memes#hashtags'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/policy', to: redirect('https://termsfeed.com/privacy-policy/87c4adefa87fede697ab0208f845fcd9')
 end
