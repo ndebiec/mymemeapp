@@ -43,7 +43,7 @@ class MemesController < ApplicationController
   def hashtags
     tag = Tag.find_by(name: params[:name]) or not_found
     @hashtag = tag.name
-    @memes = tag.memes
+    @memes = tag.memes.where(user_id: current_user.id)
   end
 
   def destroy

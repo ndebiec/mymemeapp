@@ -8,6 +8,7 @@ class User < ApplicationRecord
          :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :memes
+  has_many :tags, through: :memes
 
   def self.new_with_session(params, session)
     super.tap do |user|
