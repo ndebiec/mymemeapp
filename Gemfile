@@ -31,6 +31,9 @@ gem 'draper'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -43,8 +46,6 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers'
-  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
