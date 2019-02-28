@@ -2,7 +2,8 @@
 
 class TagsController < ApplicationController
   def index
-    @tags = TagDecorator.decorate_collection(Tag.all)
+    @tags = Tag.all
+    #= TagDecorator.decorate_collection(Tag.all)
   end      
 
 end

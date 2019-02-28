@@ -1,7 +1,9 @@
 <div class="container">
   <% @tags.each do |tag| %>
     <div class="row">
-      <%= tag.hashtag_link %>
+      <%= link_to("##{tag.name}", "/memes/hashtag/#{tag.name}")  
+      #tag.hashtag_link 
+      %>
     </div>
   <% end %>
 </div>
