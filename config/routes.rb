@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :memes
   get '/memes/hashtag/:name', to: 'memes#hashtags'
   get '/policy', to: redirect('https://termsfeed.com/privacy-policy/87c4adefa87fede697ab0208f845fcd9')
+  get '/explore', to: 'tags#index'
 end
