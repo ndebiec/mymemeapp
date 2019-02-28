@@ -6,4 +6,8 @@ RSpec.describe Meme, type: :model do
     meme = Meme.new(picture: nil)
     expect(meme).to_not be_valid
   end  
+
+  describe "Associations" do
+    it { should belong_to(:user) }
+  end
 end
